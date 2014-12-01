@@ -17,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AMY-Hu-kE3">
-                                <rect key="frame" x="16" y="28" width="288" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AMY-Hu-kE3">
+                                <rect key="frame" x="16" y="28" width="288" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="f9v-zl-Ayg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -30,13 +33,19 @@
                                 <state key="normal" title="Dismiss">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resign:" destination="dkx-z0-nzr" eventType="touchUpInside" id="gmh-iP-Dx7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="AMY-Hu-kE3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="3lF-kK-yy4"/>
                             <constraint firstItem="EDp-Dw-qxj" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="AkY-Vd-oca"/>
+                            <constraint firstItem="AMY-Hu-kE3" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="FWN-Gj-tlx"/>
                             <constraint firstItem="EDp-Dw-qxj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="TXL-Fw-b7p"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EDp-Dw-qxj" secondAttribute="bottom" constant="20" id="qny-Gp-4Vs" customClass="KeyboardAdjustConstraint"/>
+                            <constraint firstItem="AMY-Hu-kE3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="z31-z7-nMu"/>
                         </constraints>
                     </view>
                 </viewController>

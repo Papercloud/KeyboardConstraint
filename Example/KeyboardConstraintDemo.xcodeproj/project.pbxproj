@@ -10,6 +10,7 @@
 		4D1965A61A2C32B9004410E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1965A51A2C32B9004410E8 /* main.m */; };
 		4D1965A91A2C32B9004410E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1965A81A2C32B9004410E8 /* AppDelegate.m */; };
 		4D1965CA1A2C3303004410E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1965C91A2C3303004410E8 /* Main.storyboard */; };
+		4D1965CD1A2C35B8004410E8 /* UIResponder+Resign.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1965CC1A2C35B8004410E8 /* UIResponder+Resign.m */; };
 		FF5D4CF5DD2FD0E2E466383D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF83400FE951AC963BCBCBDA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -21,6 +22,8 @@
 		4D1965A71A2C32B9004410E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D1965A81A2C32B9004410E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4D1965C91A2C3303004410E8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4D1965CB1A2C35B8004410E8 /* UIResponder+Resign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Resign.h"; sourceTree = "<group>"; };
+		4D1965CC1A2C35B8004410E8 /* UIResponder+Resign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Resign.m"; sourceTree = "<group>"; };
 		BCB4A1A5D0B5B619B52C1DAE /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		DF83400FE951AC963BCBCBDA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -71,6 +74,8 @@
 				4D1965A81A2C32B9004410E8 /* AppDelegate.m */,
 				4D1965C91A2C3303004410E8 /* Main.storyboard */,
 				4D1965A31A2C32B9004410E8 /* Supporting Files */,
+				4D1965CB1A2C35B8004410E8 /* UIResponder+Resign.h */,
+				4D1965CC1A2C35B8004410E8 /* UIResponder+Resign.m */,
 			);
 			path = KeyboardConstraintDemo;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1965A91A2C32B9004410E8 /* AppDelegate.m in Sources */,
+				4D1965CD1A2C35B8004410E8 /* UIResponder+Resign.m in Sources */,
 				4D1965A61A2C32B9004410E8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
