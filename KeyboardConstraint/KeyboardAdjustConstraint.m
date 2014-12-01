@@ -8,10 +8,16 @@
 
 #import "KeyboardAdjustConstraint.h"
 
-@implementation KeyboardAdjustConstraint
+@implementation KeyboardAdjustConstraint {
+    CGFloat _originalConstant;
+}
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
+    
+    _originalConstant = self.constant;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_keyboardDidChangeVisible:)
                                                  name:UIKeyboardWillShowNotification object:nil];
@@ -48,7 +54,7 @@
                           delay:0
                         options:animationOptions|UIViewAnimationOptionLayoutSubviews
                      animations:^{
-                         [self setConstant:keyboardHeight];
+                         [self setConstant:keyboardHeight + _originalConstant];
                          [superview layoutIfNeeded];
                      }
                      completion:NULL];
