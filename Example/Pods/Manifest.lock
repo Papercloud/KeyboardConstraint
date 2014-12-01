@@ -1,0 +1,14 @@
+PODS:
+  - KeyboardConstraint (0.0.1)
+
+DEPENDENCIES:
+  - KeyboardConstraint (from `../KeyboardConstraint.podspec`)
+
+EXTERNAL SOURCES:
+  KeyboardConstraint:
+    :path: ../KeyboardConstraint.podspec
+
+SPEC CHECKSUMS:
+  KeyboardConstraint: 3d11cc4ecb44f6da66d3b718a3227621e2018320
+
+COCOAPODS: 0.35.0
