@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name = 'KeyboardConstraint'
   s.version = '0.0.1'
+  s.license = 'MIT'
   s.summary = 'A NSLayoutConstraint subclass which observes keyboard notifications.'
   s.homepage = 'https://github.com/Papercloud/KeyboardConstraint'
   s.authors  = { 'Mark Turner' => 'mt@papercloud.com.au' }
