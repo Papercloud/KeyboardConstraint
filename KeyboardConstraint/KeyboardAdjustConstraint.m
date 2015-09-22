@@ -17,7 +17,8 @@
     [super awakeFromNib];
     
     _originalConstant = self.constant;
-    
+    _enabled = YES;
+     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_keyboardDidChangeVisible:)
                                                  name:UIKeyboardWillShowNotification object:nil];
@@ -35,6 +36,8 @@
 
 - (void)_keyboardDidChangeVisible:(NSNotification *)notification
 {
+    if (!self.enabled) return;
+    
     NSTimeInterval         animationDuration = 0.0;
     UIViewAnimationOptions animationOptions  = 0;
     CGRect                 endFrame          = CGRectZero;
