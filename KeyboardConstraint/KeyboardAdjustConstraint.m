@@ -47,17 +47,19 @@
     }
 
     UIView *superview = [(UIView *)self.firstItem superview];
-
+    
     CGFloat keyboardHeight = CGRectGetMaxY(superview.frame) - CGRectGetMinY(endFrame);
 
-    [UIView animateWithDuration:animationDuration
-                          delay:0
-                        options:animationOptions|UIViewAnimationOptionLayoutSubviews
-                     animations:^{
-                         [self setConstant:keyboardHeight + _originalConstant];
-                         [superview layoutIfNeeded];
-                     }
-                     completion:NULL];
+    if (superview) {
+        [UIView animateWithDuration:animationDuration
+                              delay:0
+                            options:animationOptions|UIViewAnimationOptionLayoutSubviews
+                         animations:^{
+                             [self setConstant:keyboardHeight + _originalConstant];
+                             [superview layoutIfNeeded];
+                         }
+                         completion:NULL];
+    }
 }
 
 @end
