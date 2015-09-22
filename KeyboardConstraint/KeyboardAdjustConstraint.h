@@ -10,4 +10,6 @@
 
 @interface KeyboardAdjustConstraint : NSLayoutConstraint
 
+@property (nonatomic) BOOL enabled;
+
 @end
