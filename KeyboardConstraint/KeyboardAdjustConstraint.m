@@ -47,8 +47,9 @@
     }
 
     UIView *superview = [(UIView *)self.firstItem superview];
+    CGRect windowRelativeFrame = [superview convertRect:superview.bounds toView:nil];
 
-    CGFloat keyboardHeight = CGRectGetMaxY(superview.frame) - CGRectGetMinY(endFrame);
+    CGFloat keyboardHeight = CGRectGetMaxY(windowRelativeFrame) - CGRectGetMinY(endFrame);
 
     [UIView animateWithDuration:animationDuration
                           delay:0
