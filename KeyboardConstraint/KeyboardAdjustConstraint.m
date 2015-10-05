@@ -54,6 +54,12 @@
     CGFloat keyboardHeight = CGRectGetMaxY(windowRelativeFrame) - CGRectGetMinY(endFrame);
 
     if (superview) {
+        //Force layout before animation...
+        [CATransaction begin];
+        [CATransaction setDisableActions:YES];
+        [superview layoutIfNeeded];
+        [CATransaction commit];
+        
         [UIView animateWithDuration:animationDuration
                               delay:0
                             options:animationOptions|UIViewAnimationOptionLayoutSubviews
