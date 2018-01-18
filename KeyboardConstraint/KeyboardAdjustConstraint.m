@@ -49,9 +49,27 @@
         endFrame          = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     }
 
-    UIView *superview = [(UIView *)self.firstItem superview];
+    UIView *superview = [(UIView *)self.secondItem superview];
     CGRect windowRelativeFrame = [superview convertRect:superview.bounds toView:nil];
-    CGFloat keyboardHeight = CGRectGetMaxY(windowRelativeFrame) - CGRectGetMinY(endFrame);
+
+    CGRect intersection = CGRectIntersection(windowRelativeFrame, endFrame);
+    CGFloat keyboardHeight = 0.0;
+
+    if (!CGRectIsNull(intersection)) {
+        keyboardHeight = intersection.size.height;
+    }
+
+    // If one of the constraint items is a layout guide; subtract it's length:
+    
+    if (notification.name == UIKeyboardWillShowNotification) {
+        if ([self.firstItem conformsToProtocol:@protocol(UILayoutSupport)]) {
+            id<UILayoutSupport> layoutGuide = self.firstItem;
+            keyboardHeight -= layoutGuide.length;
+        } else if ([self.secondItem conformsToProtocol:@protocol(UILayoutSupport)]) {
+            id<UILayoutSupport> layoutGuide = self.secondItem;
+            keyboardHeight -= layoutGuide.length;
+        }
+    }
 
     if (superview) {
         //Force layout before animation...
