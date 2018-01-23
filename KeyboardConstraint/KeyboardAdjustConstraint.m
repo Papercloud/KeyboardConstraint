@@ -83,7 +83,7 @@
     }
 }
 
-// MARK - Private helpers
+#pragma mark - Private helpers
 
 - (CGFloat)layoutGuideHeight {
     id layoutGuide = [self layoutGuideItem];
