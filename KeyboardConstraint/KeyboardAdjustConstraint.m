@@ -62,13 +62,7 @@
     // If one of the constraint items is a layout guide; subtract it's length:
     
     if (notification.name == UIKeyboardWillShowNotification) {
-        if ([self.firstItem conformsToProtocol:@protocol(UILayoutSupport)]) {
-            id<UILayoutSupport> layoutGuide = self.firstItem;
-            keyboardHeight -= layoutGuide.length;
-        } else if ([self.secondItem conformsToProtocol:@protocol(UILayoutSupport)]) {
-            id<UILayoutSupport> layoutGuide = self.secondItem;
-            keyboardHeight -= layoutGuide.length;
-        }
+        keyboardHeight -= [self layoutGuideHeight];
     }
 
     if (superview) {
@@ -87,6 +81,40 @@
                          }
                          completion:NULL];
     }
+}
+
+#pragma mark - Private helpers
+
+- (CGFloat)layoutGuideHeight {
+    id layoutGuide = [self layoutGuideItem];
+    
+    if ([layoutGuide conformsToProtocol:@protocol(UILayoutSupport)]) {
+        // The layout guide is a regular bottom layout guide
+        return ((id<UILayoutSupport>) layoutGuide).length;
+    }
+    
+    if (@available(iOS 11, *)) {
+        if ([layoutGuide isKindOfClass:[UILayoutGuide class]]) {
+            // The layout guide is a safe area layout guide
+            return ((UILayoutGuide *) layoutGuide).owningView.safeAreaInsets.bottom;
+        }
+    }
+    
+    return 0.0;
+}
+
+- (id)layoutGuideItem {
+    if ([self.firstItem isKindOfClass:[UILayoutGuide class]]
+        || [self.firstItem conformsToProtocol:@protocol(UILayoutSupport)]) {
+        return self.firstItem;
+    }
+    
+    if ([self.secondItem isKindOfClass:[UILayoutGuide class]]
+        || [self.secondItem conformsToProtocol:@protocol(UILayoutSupport)]) {
+        return self.secondItem;
+    }
+    
+    return nil;
 }
 
 @end
