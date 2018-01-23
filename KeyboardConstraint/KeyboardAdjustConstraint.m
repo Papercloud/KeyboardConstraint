@@ -93,9 +93,11 @@
         return ((id<UILayoutSupport>) layoutGuide).length;
     }
     
-    if ([layoutGuide isKindOfClass:[UILayoutGuide class]] && @available(iOS 11, *)) {
-        // The layout guide is a safe area layout guide
-        return ((UILayoutGuide *) layoutGuide).owningView.safeAreaInsets.bottom;
+    if (@available(iOS 11, *)) {
+        if ([layoutGuide isKindOfClass:[UILayoutGuide class]]) {
+            // The layout guide is a safe area layout guide
+            return ((UILayoutGuide *) layoutGuide).owningView.safeAreaInsets.bottom;
+        }
     }
     
     return 0.0;
